@@ -2,8 +2,8 @@
 
 Gerenciador de conteudo (cms), desenvolvido com Ruby on Rails com as seguintes gems utilizadas: 
 
--Devise 
--MailCatcher
--Will_Paginate
--rspec 
+- Devise https://github.com/plataformatec/devise
+- MailCatcher https://github.com/sj26/mailcatcher
+- Will_Paginate https://github.com/mislav/will_paginate
+- rspec https://github.com/rspec/rspec
 
