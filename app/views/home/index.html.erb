@@ -1,0 +1,10 @@
+<% if usuario_signed_in? %>
+  <% if current_usuario.try(:admin?) %>
+    <%= render 'layouts/menu_admin'%>
+  <% else %>
+    <%= render 'layouts/menu_usuario'%>
+  <% end %>
+  <%= link_to "Sair", destroy_usuario_session_path, :method => :delete %>
+<% else %>
+  <%= link_to "Entrar", new_usuario_session_path %>
+<% end %>
