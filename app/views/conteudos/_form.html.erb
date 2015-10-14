@@ -1,4 +1,4 @@
-<%= form_for(@conteudo) do |f| %>
+<%= form_for @conteudo, html: { multipart: true } do |f| %>
   <% if @conteudo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@conteudo.errors.count, "error") %> prohibited this conteudo from being saved:</h2>
@@ -18,6 +18,10 @@
   <div class="field">
     <%= f.label :subtitulo %><br>
     <%= f.text_field :subtitulo %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
   </div>
   <div class="field">
     <%= f.label :texto %><br>

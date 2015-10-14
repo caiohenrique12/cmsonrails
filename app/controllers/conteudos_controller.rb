@@ -69,6 +69,6 @@ class ConteudosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conteudo_params
-      params.require(:conteudo).permit(:titulo, :subtitulo, :texto)
+      params.require(:conteudo).permit(:titulo, :subtitulo, :texto, :image)
     end
 end
