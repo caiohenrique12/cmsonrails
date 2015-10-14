@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contatos
   resources :banners
   resources :conteudos
   devise_for :usuarios
