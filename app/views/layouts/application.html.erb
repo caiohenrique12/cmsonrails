@@ -7,8 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<div class="container-fluid">
+  <div class="col-md-12">
+    <div class="col-md-2">
+      <ul>
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Banner', banners_path %></li>
+        <li><%= link_to 'Conteudo', conteudos_path %></li>
+        <li>Categoria</li>
+      </ul>
+    </div>
+    <div class="col-md-8">
+      <%= yield %>
+    </div>
+  </div>
+</div>
 </body>
 </html>
