@@ -1,0 +1,23 @@
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+
+body {
+	padding-top: 0;
+}
+
+.container {
+	max-width: 400px;
+}
+
+.ou-dist {
+	margin: 9px 0px 7px 149px;
+	font-weight: 100;
+	font-size: 23px;
+}
+
+.dist-panel {
+	margin-top: 130px;
+}
