@@ -11,13 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014125829) do
+ActiveRecord::Schema.define(version: 20151014205112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "banners", force: :cascade do |t|
     t.string   "url"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  create_table "contatos", force: :cascade do |t|
+    t.string   "endereco"
+    t.string   "telefone"
+    t.string   "celular"
+    t.string   "email"
+    t.text     "informacao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -26,9 +40,13 @@ ActiveRecord::Schema.define(version: 20151014125829) do
     t.string   "titulo"
     t.string   "subtitulo"
     t.text     "texto"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "usuario_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "conteudos", ["usuario_id"], name: "index_conteudos_on_usuario_id", using: :btree
