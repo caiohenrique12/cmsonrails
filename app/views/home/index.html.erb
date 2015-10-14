@@ -6,5 +6,18 @@
   <% end %>
   <%= link_to "Sair", destroy_usuario_session_path, :method => :delete %>
 <% else %>
-  <%= link_to "Entrar", new_usuario_session_path %>
+  <div class="container">
+    <div class="panel panel-default dist-panel">
+      <div class="panel panel-heading">
+        <span>Seja bem vindo</span>
+      </div>
+      <div class="panel-body">
+        <div class="form-group">
+            <%= link_to "Entrar", new_usuario_session_path, class: 'btn btn-primary btn-block btn-lg' %>
+            <label class="ou-dist">OU</label>
+            <%= link_to "Criar Conta", new_usuario_session_path, class: 'btn btn-info btn-block btn-lg' %>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
