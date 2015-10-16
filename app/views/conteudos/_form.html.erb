@@ -1,31 +1,28 @@
-<%= form_for @conteudo, html: { multipart: true } do |f| %>
   <% if @conteudo.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@conteudo.errors.count, "error") %> prohibited this conteudo from being saved:</h2>
-
-      <ul>
-      <% @conteudo.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      Há erros no formulário, por favor verifique.
     </div>
   <% end %>
-
-  <div class="dist-bt">
-    <%= f.text_field :titulo, class: 'mdl-textfield__input', placeholder: 'Titulo' %>
-  </div>
-  <div class="dist-bt">
-    <%= f.text_field :subtitulo, class: 'mdl-textfield__input', placeholder: 'Subtitulo' %>
-  </div>
-  <div class="dist-bt">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
-  </div>
-  <div class="dist-bt">
-    <%= f.text_area :texto, class: 'mdl-textfield__input', placeholder: 'Texto', rows: '15' %>
-  </div>
-  <div class="dist-bt">
-    <%= f.submit :class => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
-    <%= link_to 'Back', conteudos_path, class: 'mdl-button mdl-js-button mdl-button--primary'%>
-  </div>
-<% end %>
+  <%= form_for @conteudo, html: { multipart: true } do |f| %>
+    <div class="dist-bt">
+      <%= f.text_field :titulo, class: 'mdl-textfield__input', placeholder: 'Titulo' %>
+      <%= error_tag @conteudo, :titulo %>
+    </div>
+    <div class="dist-bt">
+      <%= f.text_field :subtitulo, class: 'mdl-textfield__input', placeholder: 'Subtitulo' %>
+      <%= error_tag @conteudo, :subtitulo %>
+    </div>
+    <div class="dist-bt">
+      <%= f.label :image %><br>
+      <%= f.file_field :image %>
+      <%= error_tag @conteudo, :image %>
+    </div>
+    <div class="dist-bt">
+      <%= f.text_area :texto, class: 'mdl-textfield__input', placeholder: 'Texto', rows: '15' %>
+      <%= error_tag @conteudo, :texto %>
+    </div>
+    <div class="dist-bt">
+      <%= f.submit :class => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
+      <%= link_to 'Back', conteudos_path, class: 'mdl-button mdl-js-button mdl-button--primary'%>
+    </div>
+  <% end %>
