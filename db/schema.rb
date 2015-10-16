@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151016210641) do
+ActiveRecord::Schema.define(version: 20151016211530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,8 +53,10 @@ ActiveRecord::Schema.define(version: 20151016210641) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "categoria_id"
   end
 
+  add_index "conteudos", ["categoria_id"], name: "index_conteudos_on_categoria_id", using: :btree
   add_index "conteudos", ["usuario_id"], name: "index_conteudos_on_usuario_id", using: :btree
 
   create_table "sugestoes", force: :cascade do |t|
@@ -85,5 +87,6 @@ ActiveRecord::Schema.define(version: 20151016210641) do
   add_index "usuarios", ["email"], name: "index_usuarios_on_email", unique: true, using: :btree
   add_index "usuarios", ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "conteudos", "categorias"
   add_foreign_key "conteudos", "usuarios"
 end
