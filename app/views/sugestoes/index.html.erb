@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sugestoes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Telefone</th>
+      <th>Texto</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sugestoes.each do |sugestao| %>
+      <tr>
+        <td><%= sugestao.nome %></td>
+        <td><%= sugestao.email %></td>
+        <td><%= sugestao.telefone %></td>
+        <td><%= sugestao.texto %></td>
+        <td><%= link_to 'Show', sugestao %></td>
+        <td><%= link_to 'Edit', edit_sugestao_path(sugestao) %></td>
+        <td><%= link_to 'Destroy', sugestao, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sugestao', new_sugestao_path %>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :sugestoes
+  resources :categorias
   resources :contatos
   resources :banners
   resources :conteudos

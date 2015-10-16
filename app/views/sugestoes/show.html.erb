@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @sugestao.nome %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @sugestao.email %>
+</p>
+
+<p>
+  <strong>Telefone:</strong>
+  <%= @sugestao.telefone %>
+</p>
+
+<p>
+  <strong>Texto:</strong>
+  <%= @sugestao.texto %>
+</p>
+
+<%= link_to 'Edit', edit_sugestao_path(@sugestao) %> |
+<%= link_to 'Back', sugestoes_path %>
