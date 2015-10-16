@@ -1,6 +1,12 @@
-<h1>Editing Banner</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @banner %> |
-<%= link_to 'Back', banners_path %>
+<div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+  <div class="mdl-card__title mdl-card--expand">
+    <h4 class="mdl-card__title-text">Editing Banner</h4>
+  </div>
+  <div class="mdl-card__supporting-text">
+    <div class="mdl-textfield mdl-js-textfield">
+      <h5>Imagem em uso</h5>
+      <%= image_tag @banner.image.url(:large) %>
+    </div>
+    <%= render 'form' %>
+  </div>
+</div>

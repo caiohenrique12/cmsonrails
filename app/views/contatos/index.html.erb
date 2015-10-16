@@ -1,35 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Contatos</h1>
+<h4>Listing Contatos</h4>
+<hr>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--12-col">
+    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+      <div class="mdl-card__supporting-text">
+        <% @contatos.each do |contato| %>
+          <h5><%= contato.endereco %></h5>
+          <br>
+          <h5><%= contato.telefone %></h5>
+          <br>
+          <h5><%= contato.celular %></h5>
+          <br>
+          <h5><%= contato.email %></h5>
+          <br>
+          <h5><%= contato.informacao %></h5>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <%= link_to 'Edit', edit_contato_path(contato), class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary' %>
+        <%= link_to 'Destroy', contato, class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent', method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+        <% end %>
+    </div>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Endereco</th>
-      <th>Telefone</th>
-      <th>Celular</th>
-      <th>Email</th>
-      <th>Informacao</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @contatos.each do |contato| %>
-      <tr>
-        <td><%= contato.endereco %></td>
-        <td><%= contato.telefone %></td>
-        <td><%= contato.celular %></td>
-        <td><%= contato.email %></td>
-        <td><%= contato.informacao %></td>
-        <td><%= link_to 'Show', contato %></td>
-        <td><%= link_to 'Edit', edit_contato_path(contato) %></td>
-        <td><%= link_to 'Destroy', contato, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Contato', new_contato_path %>
+<%= link_to 'New Contato', new_contato_path, class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect' %>

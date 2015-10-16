@@ -1,24 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Titulo:</strong>
-  <%= @conteudo.titulo %>
-</p>
-
-<p>
-  <strong>Subtitulo:</strong>
+  <p id="notice"><%= notice %></p>
+  <%= image_tag @conteudo.image.url(:large), class: 'tam-img' %>
+  <br>
+  <h3><%= @conteudo.titulo %></h3>
   <%= @conteudo.subtitulo %>
-</p>
-
-<p>
-  <strong>Imagem:</strong>
-  <%= image_tag @conteudo.image.url(:medium) %>
-</p>
-
-<p>
-  <strong>Texto:</strong>
+  <br>
   <%= @conteudo.texto %>
-</p>
-
-<%= link_to 'Edit', edit_conteudo_path(@conteudo) %> |
-<%= link_to 'Back', conteudos_path %>
+  <br>
+  <%= link_to 'Edit', edit_conteudo_path(@conteudo) %> |
+  <%= link_to 'Back', conteudos_path %>

@@ -11,16 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :image %><br>
+  <div class="mdl-textfield mdl-js-textfield">
+    <%= f.label :image %>
     <%= f.file_field :image %>
   </div>
 
   <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
+    <%= f.label :url %>
+    <%= f.text_field :url, class: 'mdl-textfield__input' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <br>
+
+  <%= f.submit :class => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
+  <%= link_to 'Back', banners_path, class: 'mdl-button mdl-js-button mdl-button--primary' %>
+  
 <% end %>

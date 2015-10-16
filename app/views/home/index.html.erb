@@ -4,20 +4,21 @@
   <% else %>
     <%= render 'layouts/menu_usuario'%>
   <% end %>
-  <%= link_to "Sair", destroy_usuario_session_path, :method => :delete %>
+  <br>
+  <%= link_to "Sair", destroy_usuario_session_path, :method => :delete, class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent dist-bt' %>
 <% else %>
-  <div class="container">
-    <div class="panel panel-default dist-panel">
-      <div class="panel panel-heading">
-        <span>Seja bem vindo</span>
-      </div>
-      <div class="panel-body">
-        <div class="form-group">
-            <%= link_to "Entrar", new_usuario_session_path, class: 'btn btn-primary btn-block btn-lg' %>
-            <label class="ou-dist">OU</label>
-            <%= link_to "Criar Conta", new_usuario_registration_path, class: 'btn btn-info btn-block btn-lg' %>
-        </div>
-      </div>
+<div class="painel">
+  <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+    <div class="mdl-card__title mdl-card--expand">
+      <h2 class="mdl-card__title-text">Seja bem vindo</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+      <%= link_to "Entrar", new_usuario_session_path, class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored tam-bt' %>
+      <br>
+      <h3>OU</h3>
+      <br>
+      <%= link_to "Criar Conta", new_usuario_registration_path, class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent tam-bt' %>
     </div>
   </div>
+</div>
 <% end %>

@@ -1,36 +1,30 @@
-<div class="container">
-  <div class="panel panel-default dist-panel">
-    <div class="panel panel-heading">
+<div class="demo-card-image mdl-card mdl-shadow--2dp" style="margin: 0 auto;">
+    <div class="mdl-card__title mdl-card--expand">
       Sign up
     </div>
-    <div class="panel-body">
+    <div class="mdl-card__actions">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
 
-        <div class="form-group">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, class: 'form-control', autofocus: true %>
+        <div class="mdl-textfield mdl-js-textfield">
+          <%= f.email_field :email, class: 'mdl-textfield__input', autofocus: true, placeholder: 'Email' %>
         </div>
 
-        <div class="form-group">
-          <%= f.label :password %>
+        <div class="mdl-textfield mdl-js-textfield">
+          <%= f.password_field :password, class: 'mdl-textfield__input', autocomplete: "off", placeholder: 'Senha' %>
           <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
-          <%= f.password_field :password, class: 'form-control', autocomplete: "off" %>
+          <% end %>
         </div>
 
-        <div class="form-group">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "off" %>
+        <div class="mdl-textfield mdl-js-textfield">
+          <%= f.password_field :password_confirmation, class: 'mdl-textfield__input', autocomplete: "off", placeholder: 'Repetir Senha' %>
         </div>
-
-        <div class="form-group">
-          <%= f.submit "Sign up", :class => 'btn btn-info btn-lg btn-block' %>
+        <div class="dist-bt">
+          <%= f.submit "Sign up", :class => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect' %>
         </div>
       <% end %>
 
       <%= render "devise/shared/links" %>
     </div>
-  </div>
 </div>

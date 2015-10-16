@@ -5,24 +5,49 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.indigo-pink.min.css">
+  <script src="https://storage.googleapis.com/code.getmdl.io/1.0.5/material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
-<div class="container-fluid">
-  <div class="col-md-12">
-    <div class="col-md-2">
-      <ul>
-        <li><%= link_to 'Home', root_path %></li>
-        <li><%= link_to 'Banner', banners_path %></li>
-        <li><%= link_to 'Conteudo', conteudos_path %></li>
-        <li>Categoria</li>
-        <li><%= link_to 'Contato', contatos_path %></li>
-        <li>Fale Conosco</li>
-      </ul>
+  <!-- The drawer is always open in large screens. The header is always shown,
+    even in small screens. -->
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <div class="mdl-layout-spacer"></div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                    mdl-textfield--floating-label mdl-textfield--align-right">
+          <label class="mdl-button mdl-js-button mdl-button--icon"
+                 for="fixed-header-drawer-exp">
+            <i class="material-icons">search</i>
+          </label>
+          <div class="mdl-textfield__expandable-holder">
+            <input class="mdl-textfield__input" type="text" name="sample"
+                   id="fixed-header-drawer-exp" />
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">
+        LilyCMS
+      </span>
+      <nav class="mdl-navigation">
+        <%= link_to 'Home', root_path, class: 'mdl-navigation__link' %>
+        <%= link_to 'Banner', banners_path, class: 'mdl-navigation__link' %>
+        <%= link_to 'Conteudo', conteudos_path, class: 'mdl-navigation__link' %>
+        <%= link_to 'Contato', contatos_path, class: 'mdl-navigation__link' %>
+      </nav>
     </div>
-    <div class="col-md-8">
-      <%= yield %>
-    </div>
+    <main class="mdl-layout__content">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--12-col">
+            <%= yield %>
+          </div>
+        </div>
+    </main>
   </div>
-</div>
 </body>
 </html>
