@@ -1,6 +1,6 @@
 == README
 
-Gerenciador de conteudo (cms), desenvolvido com Ruby on Rails com as seguintes gems utilizadas: 
+LilyCMS é um gerenciador de sites open-source, em vista de ajudar e contribuir com a comunidade Ruby on Rails, ele possui CRUD para conteúdo, banners, contatos, categorias. Além de possuir um formulario para recebimento de sugestões integrado com o MailCatcher instalado e configurado. 
 
 - Devise https://github.com/plataformatec/devise
 - MailCatcher https://github.com/sj26/mailcatcher
