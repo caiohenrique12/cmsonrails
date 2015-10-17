@@ -2,7 +2,7 @@
 
     <h4>Listing Banners</h4>
 
-    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp tam-tb">
       <thead>
         <tr>
           <th class="mdl-data-table__cell--non-numeric">Imagem</th>
@@ -14,7 +14,7 @@
       <tbody>
         <% @banners.each do |banner| %>
           <tr>
-            <td class="mdl-data-table__cell--non-numeric"><%= image_tag banner.image.url(:thumb) %></td>
+            <td class="mdl-data-table__cell--non-numeric"><%= image_tag banner.image.url(:thumb), class: 'dist-img-tb' %></td>
             <td class="mdl-data-table__cell--non-numeric"><%= banner.url %></td>
             <td class="mdl-data-table__cell--non-numeric"><%= link_to 'Edit', edit_banner_path(banner), class: 'mdl-button mdl-js-button mdl-button--primary' %></td>
             <td class="mdl-data-table__cell--non-numeric"><%= link_to 'Destroy', banner, class: 'mdl-button mdl-js-button mdl-button--accent', method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -18,6 +18,11 @@
       <%= error_tag @conteudo, :image %>
     </div>
     <div class="dist-bt">
+      <%= f.label :categoria %><br>
+      <%= f.select :categoria_id, Categoria.all.collect{|c| [c.nome, c.id]}, prompt: 'Selecione' %>
+      <%= error_tag @conteudo, :categoria_id %>
+    </div>
+    <div class="dist-bt">
       <%= f.text_area :texto, class: 'mdl-textfield__input', placeholder: 'Texto', rows: '15' %>
       <%= error_tag @conteudo, :texto %>
     </div>

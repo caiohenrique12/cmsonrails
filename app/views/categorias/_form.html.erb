@@ -1,21 +1,15 @@
-<%= form_for(@categoria) do |f| %>
   <% if @categoria.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@categoria.errors.count, "error") %> prohibited this categoria from being saved:</h2>
-
-      <ul>
-      <% @categoria.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      Há erros no formulário, por favor verifique.
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nome %><br>
-    <%= f.text_field :nome %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <%= form_for(@categoria) do |f| %>
+    <div class="field">
+      <%= f.text_field :nome, class: 'mdl-textfield__input', placeholder: 'Nome' %>
+      <%= error_tag @categoria, :nome %>
+    </div>
+    <br>
+    <%= f.submit :class => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
+    <%= link_to 'Back', categorias_path, class: 'mdl-button mdl-js-button mdl-button--primary' %>
+  <% end %>

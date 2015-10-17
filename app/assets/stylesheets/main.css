@@ -82,6 +82,10 @@ body {
 	text-align: center;
 }
 
-.tam-bt {
+.tam-bt, .tam-tb {
 	width: 100%;
+}
+
+.dist-img-tb {
+  margin-bottom: 20px;
 }
