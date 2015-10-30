@@ -1,10 +1,15 @@
   <p id="notice"><%= notice %></p>
-  <%= image_tag @conteudo.image.url(:large), class: 'tam-img' %>
-  <br>
-  <h3><%= @conteudo.titulo %></h3>
-  <%= @conteudo.subtitulo %>
-  <br>
-  <%= @conteudo.texto %>
-  <br>
-  <%= link_to 'Edit', edit_conteudo_path(@conteudo) %> |
-  <%= link_to 'Back', conteudos_path %>
+  <%= image_tag @conteudo.image.url(:large), class: 'tam-img img-responsive' %>
+  <div class="form-group">
+    <h3 style="font-weight: 900;"><%= @conteudo.titulo %></h3>
+  </div>
+  <div class="form-group">
+    <%= @conteudo.subtitulo %>
+  </div>
+  <div class="form-group">
+    <%= @conteudo.texto %>
+  </div>
+  <div class="form-group">
+    <%= link_to 'Edit', edit_conteudo_path(@conteudo), class: 'btn btn-success' %>
+    <%= link_to 'Back', conteudos_path, class: 'btn btn-danger' %>
+  </div>

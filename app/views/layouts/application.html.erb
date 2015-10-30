@@ -5,49 +5,53 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <!-- The drawer is always open in large screens. The header is always shown,
-    even in small screens. -->
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
-    <header class="mdl-layout__header">
-      <div class="mdl-layout__header-row">
-        <div class="mdl-layout-spacer"></div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
-                    mdl-textfield--floating-label mdl-textfield--align-right">
-          <label class="mdl-button mdl-js-button mdl-button--icon"
-                 for="fixed-header-drawer-exp">
-            <i class="material-icons">search</i>
-          </label>
-          <div class="mdl-textfield__expandable-holder">
-            <input class="mdl-textfield__input" type="text" name="sample"
-                   id="fixed-header-drawer-exp" />
-          </div>
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">LilyCMS</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+
+          </form>
         </div>
       </div>
-    </header>
-    <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">
-        LilyCMS
-      </span>
-      <nav class="mdl-navigation">
-        <%= link_to 'Home', root_path, class: 'mdl-navigation__link' %>
-        <%= link_to 'Banner', banners_path, class: 'mdl-navigation__link' %>
-        <%= link_to 'Conteudo', conteudos_path, class: 'mdl-navigation__link' %>
-        <%= link_to 'Categoria', categorias_path, class: 'mdl-navigation__link' %>
-        <%= link_to 'Sugestões Recebidas', sugestoes_path, class: 'mdl-navigation__link' %>
-        <%= link_to 'Contato', contatos_path, class: 'mdl-navigation__link' %>
-      </nav>
-    </div>
-    <main class="mdl-layout__content">
-        <div class="mdl-grid">
-          <div class="mdl-cell mdl-cell--12-col">
+  </nav>
+  <div class="container-fluid">
+
+      <div class="row row-offcanvas row-offcanvas-left">
+
+         <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+
+            <ul class="nav nav-sidebar">
+              <li class="active"><%= link_to 'Home', root_path, class: 'mdl-navigation__link' %></li>
+              <li><%= link_to 'Banner', banners_path, class: 'mdl-navigation__link' %></li>
+              <li><%= link_to 'Conteudo', conteudos_path, class: 'mdl-navigation__link' %></li>
+              <li><%= link_to 'Categoria', categorias_path, class: 'mdl-navigation__link' %></li>
+              <li><%= link_to 'Sugestões Recebidas', sugestoes_path, class: 'mdl-navigation__link' %></li>
+              <li><%= link_to 'Contato', contatos_path, class: 'mdl-navigation__link' %></li>
+            </ul>
+        </div><!--/span-->
+
+        <div class="col-sm-9 col-md-10 main">
+          <!--toggle sidebar button-->
+          <p class="visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+          </p>
+          <div class="row placeholders">
             <%= yield %>
           </div>
-        </div>
-    </main>
-  </div>
+        </div><!--/row-->
+	   </div>
+   </div><!--/.container-->
 </body>
 </html>

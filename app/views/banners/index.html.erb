@@ -1,26 +1,30 @@
-   <p id="notice"><%= notice %></p>
-
-    <h4>Listing Banners</h4>
-
-    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp tam-tb">
-      <thead>
-        <tr>
-          <th class="mdl-data-table__cell--non-numeric">Imagem</th>
-          <th class="mdl-data-table__cell--non-numeric">Url</th>
-          <th class="mdl-data-table__cell--non-numeric">Ações</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @banners.each do |banner| %>
+<p><%= notice %></p>
+<div class="panel panel-default">
+  <div class="panel-heading">Listing Banners</div>
+  <div class="panel-body">
+    <div class="table responsive">
+      <table class="table">
+        <thead>
           <tr>
-            <td class="mdl-data-table__cell--non-numeric"><%= image_tag banner.image.url(:thumb), class: 'dist-img-tb' %></td>
-            <td class="mdl-data-table__cell--non-numeric"><%= banner.url %></td>
-            <td class="mdl-data-table__cell--non-numeric"><%= link_to 'Edit', edit_banner_path(banner), class: 'mdl-button mdl-js-button mdl-button--primary' %></td>
-            <td class="mdl-data-table__cell--non-numeric"><%= link_to 'Destroy', banner, class: 'mdl-button mdl-js-button mdl-button--accent', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <th class="mdl-data-table__cell--non-numeric">Imagem</th>
+            <th class="mdl-data-table__cell--non-numeric">Url</th>
+            <th class="mdl-data-table__cell--non-numeric">Ações</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
 
-    <%= link_to 'New Banner', new_banner_path, class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect dist-bt' %>
+        <tbody>
+          <% @banners.each do |banner| %>
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric"><%= image_tag banner.image.url(:thumb), class: 'img-responsive' %></td>
+            <td class="mdl-data-table__cell--non-numeric"><%= banner.url %></td>
+            <td class="mdl-data-table__cell--non-numeric"><%= link_to 'Edit', edit_banner_path(banner), class: 'btn btn-success' %></td>
+            <td class="mdl-data-table__cell--non-numeric"><%= link_to 'Destroy', banner, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'New Banner', new_banner_path, class: 'btn btn-info' %>
