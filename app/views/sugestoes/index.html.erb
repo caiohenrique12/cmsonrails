@@ -1,23 +1,21 @@
-<p id="notice"><%= notice %></p>
-
-<h4>Listing Sugestoes</h4>
-<hr>
-<div class="mdl-grid">
-  <div class="mdl-cell mdl-cell--12-col">
-    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-      <div class="mdl-card__supporting-text">
-        <% @sugestoes.each do |sugestao| %>
-          <h3>Nome: </h3><%= sugestao.nome %><br>
-          <h3>Email: </h3><%= sugestao.email %><br>
-          <h3>Telefone: </h3><%= sugestao.telefone %><br>
-          <h3>Mensagem: </h3><%= sugestao.texto %>
-          <div class="mdl-card__actions mdl-card--border">
-            <%= link_to 'Destroy', sugestao, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </div>
-        <% end %>
+  <h4>Listing Sugestoes</h4>
+  <hr>
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--12-col">
+      <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+        <div class="mdl-card__supporting-text">
+          <% @sugestoes.each do |sugestao| %>
+            <h3>Nome: </h3><%= sugestao.nome %><br>
+            <h3>Email: </h3><%= sugestao.email %><br>
+            <h3>Telefone: </h3><%= sugestao.telefone %><br>
+            <h3>Mensagem: </h3><%= sugestao.texto %>
+            <div class="mdl-card__actions mdl-card--border">
+              <%= link_to 'Destroy', sugestao, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<%= link_to 'New Sugestao', new_sugestao_path %>
+  <%= link_to 'New Sugestao', new_sugestao_path %>

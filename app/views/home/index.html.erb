@@ -1,20 +1,18 @@
-<% if usuario_signed_in? %>
-  <% if current_usuario.try(:admin?) %>
-    <%= render 'layouts/menu_admin'%>
+  <% if usuario_signed_in? %>
+    <% if current_usuario.try(:admin?) %>
+      <%= render 'layouts/menu_admin'%>
+    <% else %>
+      <%= render 'layouts/menu_usuario'%>
+    <% end %>
   <% else %>
-    <%= render 'layouts/menu_usuario'%>
+    <div class="panel panel-default" style="margin: 0 auto; width: 400px; height: 260px;">
+      <div class="panel-heading">Seja bem vindo</div>
+        <div class="panel-body">
+            <%= link_to "Entrar", new_usuario_session_path, class: 'btn btn-primary btn-lg btn-block' %>
+            <br>
+            <h3 style="text-align: center;">OU</h3>
+            <br>
+            <%= link_to "Criar Conta", new_usuario_registration_path, class: 'btn btn-default btn-lg btn-block' %>
+        </div>
+    </div>
   <% end %>
-  <br>
-  <%= link_to "Sair", destroy_usuario_session_path, :method => :delete, class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent dist-bt' %>
-<% else %>
-  <div class="panel panel-default">
-    <div class="panel-heading"><h2 class="mdl-card__title-text">Seja bem vindo</h2></div>
-      <div class="panel-body">
-          <%= link_to "Entrar", new_usuario_session_path, class: 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored tam-bt' %>
-          <br>
-          <h3>OU</h3>
-          <br>
-          <%= link_to "Criar Conta", new_usuario_registration_path, class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent tam-bt' %>
-      </div>
-  </div>
-<% end %>

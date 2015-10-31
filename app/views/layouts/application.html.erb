@@ -20,27 +20,37 @@
           <a class="navbar-brand" href="#">LilyCMS</a>
         </div>
         <div class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-
-          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Minha Conta <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <% if usuario_signed_in? %>
+                    <li><%= link_to "Sair", destroy_usuario_session_path, :method => :delete, class: '' %></li>
+                  <% else %>
+                    <li><%= link_to "Entrar", new_usuario_session_path %></li>
+                <% end %>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to "Criar Conta", new_usuario_registration_path %></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
   </nav>
   <div class="container-fluid">
-
       <div class="row row-offcanvas row-offcanvas-left">
-
-         <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
-
+        <% if usuario_signed_in? %>
+          <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
             <ul class="nav nav-sidebar">
-              <li class="active"><%= link_to 'Home', root_path, class: 'mdl-navigation__link' %></li>
+              <li><%= link_to 'Home', root_path, class: 'mdl-navigation__link' %></li>
               <li><%= link_to 'Banner', banners_path, class: 'mdl-navigation__link' %></li>
               <li><%= link_to 'Conteudo', conteudos_path, class: 'mdl-navigation__link' %></li>
               <li><%= link_to 'Categoria', categorias_path, class: 'mdl-navigation__link' %></li>
               <li><%= link_to 'Sugestões Recebidas', sugestoes_path, class: 'mdl-navigation__link' %></li>
               <li><%= link_to 'Contato', contatos_path, class: 'mdl-navigation__link' %></li>
             </ul>
-        </div><!--/span-->
+          </div><!--/span-->
+        <% end %>
 
         <div class="col-sm-9 col-md-10 main">
           <!--toggle sidebar button-->
@@ -48,6 +58,7 @@
             <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
           </p>
           <div class="row placeholders">
+            <p class="alert"><%= notice %></p>
             <%= yield %>
           </div>
         </div><!--/row-->
