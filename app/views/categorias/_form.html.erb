@@ -5,11 +5,12 @@
   <% end %>
 
   <%= form_for(@categoria) do |f| %>
-    <div class="field">
-      <%= f.text_field :nome, class: 'mdl-textfield__input', placeholder: 'Nome' %>
+    <div class="form-group">
+      <%= f.label :nome, class: 'estilo-fonte' %>
+      <%= f.text_field :nome, class: 'form-control', placeholder: 'Nome' %>
       <%= error_tag @categoria, :nome %>
     </div>
     <br>
-    <%= f.submit :class => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
-    <%= link_to 'Back', categorias_path, class: 'mdl-button mdl-js-button mdl-button--primary' %>
+    <%= f.submit :class => 'btn btn-primary' %>
+    <%= link_to 'Back', categorias_path, class: 'btn btn-warning' %>
   <% end %>

@@ -1,23 +1,23 @@
   <% if @banner.errors.any? %>
-    <div id="error_explanation">
+    <div id="alert alert-warning">
       Há erros no formulário, por favor verifique.
     </div>
   <% end %>
 
   <%= form_for @banner, html: { multipart: true } do |f| %>
-    <div class="mdl-textfield mdl-js-textfield">
-      <%= f.label :image %>
+    <div class="form-group">
+      <%= f.label :image, class: 'estilo-fonte' %>
       <%= f.file_field :image %>
       <%= error_tag @banner, :image %>
     </div>
 
-    <div class="field">
-      <%= f.label :url %>
-      <%= f.text_field :url, class: 'mdl-textfield__input' %>
+    <div class="form-group">
+      <%= f.label :url, class: 'estilo-fonte' %>
+      <%= f.text_field :url, class: 'form-control' %>
       <%= error_tag @banner, :url %>
     </div>
     <br>
-    <%= f.submit :class => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
-    <%= link_to 'Back', banners_path, class: 'mdl-button mdl-js-button mdl-button--primary' %>
+    <%= f.submit :class => 'btn btn-primary' %>
+    <%= link_to 'Back', banners_path, class: 'btn btn-warning' %>
 
   <% end %>

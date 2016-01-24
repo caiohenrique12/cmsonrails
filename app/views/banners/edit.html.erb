@@ -1,12 +1,8 @@
-<div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-  <div class="mdl-card__title mdl-card--expand">
-    <h4 class="mdl-card__title-text">Editing Banner</h4>
-  </div>
-  <div class="mdl-card__supporting-text">
-    <div class="mdl-textfield mdl-js-textfield">
+<div class="panel panel-default">
+  <div class="panel-heading">Editing Banner</div>
+  <div class="panel-body">
       <h5>Imagem em uso</h5>
-      <%= image_tag @banner.image.url(:large) %>
-    </div>
-    <%= render 'form' %>
+      <%= image_tag @banner.image.url(:large), class: 'img-responsive' %>
+      <%= render 'form' %>
   </div>
 </div>

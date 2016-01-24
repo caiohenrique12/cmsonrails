@@ -4,30 +4,33 @@
     </div>
   <% end %>
   <%= form_for @conteudo, html: { multipart: true } do |f| %>
-    <div class="dist-bt">
-      <%= f.text_field :titulo, class: 'mdl-textfield__input', placeholder: 'Titulo' %>
+    <div class="form-group">
+      <%= f.label :titulo, class: 'estilo-fonte' %>
+      <%= f.text_field :titulo, class: 'form-control', placeholder: 'Titulo' %>
       <%= error_tag @conteudo, :titulo %>
     </div>
-    <div class="dist-bt">
-      <%= f.text_field :subtitulo, class: 'mdl-textfield__input', placeholder: 'Subtitulo' %>
+    <div class="form-group">
+      <%= f.label :subtitulo, class: 'estilo-fonte' %>
+      <%= f.text_field :subtitulo, class: 'form-control', placeholder: 'Subtitulo' %>
       <%= error_tag @conteudo, :subtitulo %>
     </div>
-    <div class="dist-bt">
-      <%= f.label :image %><br>
+    <div class="form-group">
+      <%= f.label :image, class: 'estilo-fonte' %>
       <%= f.file_field :image %>
       <%= error_tag @conteudo, :image %>
     </div>
-    <div class="dist-bt">
-      <%= f.label :categoria %><br>
-      <%= f.select :categoria_id, Categoria.all.collect{|c| [c.nome, c.id]}, prompt: 'Selecione' %>
+    <div class="form-group">
+      <%= f.label :categoria, class: 'estilo-fonte' %><br>
       <%= error_tag @conteudo, :categoria_id %>
+      <%= f.select :categoria_id, Categoria.all.collect{|c| [c.nome, c.id]}, prompt: 'Selecione' %>
     </div>
-    <div class="dist-bt">
-      <%= f.text_area :texto, class: 'mdl-textfield__input', placeholder: 'Texto', rows: '15' %>
+    <div class="form-group">
+      <%= f.label :texto, class: 'estilo-fonte' %>
+      <%= f.text_area :texto, class: 'form-control', placeholder: 'Texto', rows: '15' %>
       <%= error_tag @conteudo, :texto %>
     </div>
-    <div class="dist-bt">
-      <%= f.submit :class => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
-      <%= link_to 'Back', conteudos_path, class: 'mdl-button mdl-js-button mdl-button--primary'%>
+    <div class="form-group">
+      <%= f.submit :class => 'btn btn-primary' %>
+      <%= link_to 'Back', conteudos_path, class: 'btn btn-warning'%>
     </div>
   <% end %>

@@ -1,29 +1,32 @@
-<p id="notice"><%= notice %></p>
-
-<h4>Listing Contatos</h4>
-<hr>
-<div class="mdl-grid">
-  <div class="mdl-cell mdl-cell--12-col">
-    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-      <div class="mdl-card__supporting-text">
-        <% @contatos.each do |contato| %>
-          <h5><%= contato.endereco %></h5>
-          <br>
-          <h5><%= contato.telefone %></h5>
-          <br>
-          <h5><%= contato.celular %></h5>
-          <br>
-          <h5><%= contato.email %></h5>
-          <br>
+  <div class="panel panel-default">
+    <div class="panel-heading">Listing Contatos</div>
+    <div class="panel-body">
+      <% @contatos.each do |contato| %>
+        <div class="form-group">
+          <h3><%= contato.endereco %></h3>
+          <hr>
+        </div>
+        <div class="form-group">
+          <h4><%= contato.telefone %></h4>
+          <hr>
+        </div>
+        <div class="form-group">
+          <h4><%= contato.celular %></h4>
+          <hr>
+        </div>
+        <div class="form-group">
+          <h4><%= contato.email %></h4>
+          <hr>
+        </div>
+        <div class="form-group">
           <h5><%= contato.informacao %></h5>
-      </div>
-      <div class="mdl-card__actions mdl-card--border">
-        <%= link_to 'Edit', edit_contato_path(contato), class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary' %>
-        <%= link_to 'Destroy', contato, class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent', method: :delete, data: { confirm: 'Are you sure?' } %>
-      </div>
-        <% end %>
+          <hr>
+        </div>
+
+        <%= link_to 'Edit', edit_contato_path(contato), class: 'btn btn-success' %>
+        <!--<%= link_to 'Destroy', contato, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>-->
+      <% end %>
     </div>
   </div>
-</div>
 
-<%= link_to 'New Contato', new_contato_path, class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect' %>
+  <%= link_to 'New Contato', new_contato_path, class: 'btn btn-info' %>

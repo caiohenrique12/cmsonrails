@@ -5,32 +5,33 @@
   <% end %>
 
   <%= form_for(@contato) do |f| %>
-    <div class="field">
-      <%= f.label :endereco %><br>
-      <%= f.text_field :endereco %>
+    <div class="form-group">
+      <%= f.label :endereco, class: 'estilo-fonte' %>
+      <%= f.text_field :endereco, class: 'form-control' %>
       <%= error_tag @contato, :endereco %>
     </div>
-    <div class="field">
-      <%= f.label :telefone %><br>
-      <%= f.text_field :telefone %>
+    <div class="form-group">
+      <%= f.label :telefone, class: 'estilo-fonte' %>
+      <%= f.text_field :telefone, class: 'form-control' %>
       <%= error_tag @contato, :telefone %>
     </div>
-    <div class="field">
-      <%= f.label :celular %><br>
-      <%= f.text_field :celular %>
+    <div class="form-group">
+      <%= f.label :celular, class: 'estilo-fonte' %>
+      <%= f.text_field :celular, class: 'form-control' %>
       <%= error_tag @contato, :celular %>
     </div>
-    <div class="field">
-      <%= f.label :email %><br>
-      <%= f.text_field :email %>
+    <div class="form-group">
+      <%= f.label :email, class: 'estilo-fonte' %>
+      <%= f.text_field :email, class: 'form-control' %>
       <%= error_tag @contato, :email %>
     </div>
-    <div class="field">
-      <%= f.label :informacao %><br>
-      <%= f.text_area :informacao %>
+    <div class="form-group">
+      <%= f.label :informacao, class: 'estilo-fonte' %>
+      <%= f.text_area :informacao, class: 'form-control' %>
       <%= error_tag @contato, :informacao %>
     </div>
-    <div class="actions">
-      <%= f.submit %>
+    <div class="form-group">
+      <%= f.submit :class => 'btn btn-primary' %>
+      <%= link_to 'Back', contatos_path, class: 'btn btn-warning' %>
     </div>
   <% end %>

@@ -1,37 +1,33 @@
-  <p id="notice"><%= notice %></p>
   <h4>Listing Conteudos</h4>
   <hr>
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-    <label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
-      <i class="material-icons">search</i>
-    </label>
-    <div class="mdl-textfield__expandable-holder">
-      <input class="mdl-textfield__input" type="text" id="sample6" placeholder="Busca por titulo" />
-      <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+  <div class="panel panel-default">
+    <div class="panel-heading">Filtro</div>
+    <div class="panel-body">
+      <div class="form-group">
+        <label for="pesqTitulo" class="estilo-fonte">Título</label>
+        <input type="email" class="form-control" id="pesqTitulo" placeholder="Titulo">
+      </div>
+      <label for="inputEmail3" class="control-label estilo-fonte">Categoria</label>
+      <select class="form-control">
+        <option>Escolha</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
     </div>
   </div>
-
-    <div class="mdl-grid">
-      <% @conteudos.each do |conteudo| %>
-        <div class="mdl-cell mdl-cell--4-col">
-          <div class="mdl-card mdl-shadow--4dp">
-            <div class="mdl-card__media">
-              <%= image_tag conteudo.image.url(:medium) %>
-            </div>
-            <div class="mdl-card__supporting-text">
-              <h4><%= conteudo.titulo %><br></h4>
-              <%= conteudo.subtitulo %>
-            </div>
-            <div class="mdl-card__supporting-text">
-              <%= conteudo.texto %>
-            </div>
-            <div class="mdl-card__actions mdl-card--border">
-              <%= link_to 'Show', conteudo, class: 'mdl-button mdl-js-button mdl-js-ripple-effect' %>
-              <%= link_to 'Edit', edit_conteudo_path(conteudo), class: 'mdl-button mdl-js-button mdl-button--primary' %>
-              <%= link_to 'Destroy', conteudo, class: 'mdl-button mdl-js-button mdl-button--accent', method: :delete, data: { confirm: 'Are you sure?' } %>
-            </div>
-          </div>
+  <% @conteudos.each do |conteudo| %>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <%= image_tag conteudo.image.url(:medium), class: 'thumbnail-estilo img-responsive' %>
+        <div class="caption">
+          <h5 style="font-weight: 900;"><%= conteudo.titulo %><br></h5>
+          <%= link_to 'Show', conteudo, class: 'btn btn-default' %>
+          <%= link_to 'Edit', edit_conteudo_path(conteudo), class: 'btn btn-success' %>
+          <%= link_to 'Destroy', conteudo, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
-      <% end %>
+      </div>
     </div>
-  <%= link_to 'New Conteudo', new_conteudo_path, class: 'dist-bt mdl-button mdl-js-button mdl-button--raised mdl-button--colored' %>
+  <% end %>
+  <%= link_to 'New Conteudo', new_conteudo_path, class: 'btn btn-primary' %>
